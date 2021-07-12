@@ -48,9 +48,7 @@ export default function IndexScreen({ courts, location }) {
 
 	return (
 		<SafeAreaView style={styles.screenContainer}>
-			<View>
-				{location.latitude ? loaded() : loading()}
-			</View>
+			<View>{location.latitude ? loaded() : loading()}</View>
 			<View>
 				<Text>TITLE HERE</Text>
 			</View>

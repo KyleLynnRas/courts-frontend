@@ -2,9 +2,16 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
 import { StyleSheet } from "react-native";
 import * as Location from "expo-location";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 //screens
+import HomeScreen from "./app/screens/HomeScreen";
+import ShowScreen from "./app/screens/ShowScreen";
 import IndexScreen from "./app/screens/IndexScreen";
 import NewScreen from "./app/screens/NewScreen";
+
+//create stack nav
+const Stack = createStackNavigator();
 
 export default function App() {
 	//state court data
@@ -98,7 +105,15 @@ export default function App() {
 	}, []);
 
 	// return <NewScreen createCourts={createCourts} />;
-	return <IndexScreen courts={courts} location={location} />;
+	// return <IndexScreen courts={courts} location={location} />;
+	return (
+		<NavigationContainer>
+			<Stack.Navigator>
+				<Stack.Screen name="Home" component={HomeScreen} />
+				<Stack.Screen name="Show" component={ShowScreen} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 }
 
 const styles = StyleSheet.create({});
