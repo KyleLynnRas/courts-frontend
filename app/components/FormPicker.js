@@ -16,7 +16,6 @@ export default function FormPicker({
 }) {
 	return (
 		<View style={style}>
-			<Text>{label}</Text>
 			<Picker
 				selectedValue={selected}
 				mode="dropdown"
@@ -30,6 +29,7 @@ export default function FormPicker({
 				<Picker.Item label={label4} value={label4} />
 				<Picker.Item label={label5} value={label5} />
 			</Picker>
+			<Text>{label}</Text>
 		</View>
 	);
 }

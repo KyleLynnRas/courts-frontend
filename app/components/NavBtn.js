@@ -18,6 +18,6 @@ export default function NavBtn({ screen, text }) {
 
 const styles = StyleSheet.create({
 	button: {
-		backgroundColor: "pink",
+		backgroundColor: "purple",
 	},
 });
