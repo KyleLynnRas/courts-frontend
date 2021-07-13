@@ -17,6 +17,7 @@ import StarRating from "../components/StarRating";
 import SwitchIcon from "../components/SwitchIcon";
 import NavBtn from "../components/NavBtn";
 import Map from "../components/Map";
+import LevelIcon from "../components/LevelIcon";
 
 export default function ShowScreen({
 	navigation,
@@ -77,6 +78,41 @@ export default function ShowScreen({
 					text2="Private"
 					icon1={<MaterialIcons name="public" size={24} color="black" />}
 					icon2={<MaterialIcons name="vpn-key" size={24} color="black" />}
+				/>
+				<LevelIcon
+					condition={court.levelplay}
+					text1="Beginner"
+					text2="Medium"
+					text3="Advanced"
+					text4="All"
+					icon1={
+						<MaterialCommunityIcons
+							name="speedometer-slow"
+							size={24}
+							color="black"
+						/>
+					}
+					icon2={
+						<MaterialCommunityIcons
+							name="speedometer-medium"
+							size={24}
+							color="black"
+						/>
+					}
+					icon3={
+						<MaterialCommunityIcons
+							name="speedometer"
+							size={24}
+							color="black"
+						/>
+					}
+					icon4={
+						<MaterialCommunityIcons
+							name="human-greeting"
+							size={24}
+							color="black"
+						/>
+					}
 				/>
 			</View>
 			<TouchableOpacity onPress={handleChange}>
