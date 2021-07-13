@@ -9,6 +9,7 @@ import HomeScreen from "./app/screens/HomeScreen";
 import ShowScreen from "./app/screens/ShowScreen";
 import IndexScreen from "./app/screens/IndexScreen";
 import NewScreen from "./app/screens/NewScreen";
+import EditScreen from "./app/screens/EditScreen";
 
 //create stack nav
 const Stack = createStackNavigator();
@@ -99,6 +100,24 @@ export default function App() {
 		}
 	};
 
+	//update
+	const updateCourt = async (formData, id) => {
+		try {
+			await fetch(URL + `courts/${id}`, {
+				method: "put",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(formData),
+			});
+			alert("updated");
+			//update courts
+			getCourts();
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	// useEffect to get permission/initial data
 	useEffect(() => {
 		getCourts();
@@ -125,6 +144,11 @@ export default function App() {
 				</Stack.Screen>
 				<Stack.Screen name="New">
 					{(props) => <NewScreen {...props} createCourts={createCourts} />}
+				</Stack.Screen>
+				<Stack.Screen name="Edit">
+					{(props) => (
+						<EditScreen {...props} updateCourt={updateCourt} courts={courts} />
+					)}
 				</Stack.Screen>
 			</Stack.Navigator>
 		</NavigationContainer>

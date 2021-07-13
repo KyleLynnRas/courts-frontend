@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-	View,
 	Text,
 	StyleSheet,
 	SafeAreaView,
@@ -11,19 +10,24 @@ import {
 } from "react-native";
 import FormPicker from "../components/FormPicker";
 
-export default function NewScreen({ createCourts, navigation }) {
+export default function EditScreen({ navigation, courts, updateCourt, route }) {
+	//find court
+	const id = route.params.id;
+	//courts
+	const court = courts.find((c) => c.id === id);
+
 	//state form data
 	const [formData, setFormData] = useState({
-		latitude: null,
-		longitude: null,
-		indoor: false,
-		fee: false,
-		stars: "",
-		public: false,
-		bathrooms: false,
-		levelplay: false,
-		notes: "",
-		title: "",
+		latitude: court.latitude,
+		longitude: court.longitude,
+		indoor: court.indoor,
+		fee: court.fee,
+		stars: court.stars,
+		public: court.public,
+		bathrooms: court.bathrooms,
+		levelplay: court.levelplay,
+		notes: court.notes,
+		title: court.title,
 	});
 
 	//handlesubmit
@@ -34,10 +38,10 @@ export default function NewScreen({ createCourts, navigation }) {
 			alert("Please fill out all the fields. Notes are not required");
 			return;
 		}
-		//send form data in post request
-		createCourts(formData);
-		//redirect to index
-		navigation.navigate("Index");
+		//send form data in put request
+		updateCourt(formData, id);
+		//redirect to show
+		navigation.navigate("Show", { id: id });
 	};
 
 	const handleChange = (value, name) => {
