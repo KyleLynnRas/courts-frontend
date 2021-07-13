@@ -4,12 +4,12 @@ import {
 	Text,
 	StyleSheet,
 	SafeAreaView,
-	Dimensions,
-	TouchableOpacity,
+	Dimensions
 } from "react-native";
 import MapView, { Circle } from "react-native-maps";
 //components
 import PinPoint from "../components/PinPoint";
+import NavBtn from "../components/NavBtn";
 
 export default function IndexScreen({ location, courts, navigation }) {
 	// console.log(courts, location.latitude, location.longitude)
@@ -58,11 +58,7 @@ export default function IndexScreen({ location, courts, navigation }) {
 			<View>
 				<Text>TITLE HERE</Text>
 			</View>
-			<TouchableOpacity
-				onPress={() => navigation.navigate("New")}
-			>
-				<Text>NEW BTN</Text>
-			</TouchableOpacity>
+			<NavBtn text="Add a court" screen="New" />
 		</SafeAreaView>
 	);
 }

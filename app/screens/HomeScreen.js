@@ -1,23 +1,15 @@
 import React from "react";
-import { View, Text, SafeAreaView, StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { Text, SafeAreaView, StyleSheet } from "react-native";
+//components
+import NavBtn from "../components/NavBtn";
 
 export default function HomeScreen({ navigation }) {
 	return (
 		<SafeAreaView>
 			<Text>HOME SCREEN</Text>
-			<TouchableOpacity
-				style={styles.button}
-				onPress={() => navigation.navigate("Index")}
-			>
-				<Text>Index</Text>
-			</TouchableOpacity>
+			<NavBtn screen="Index" text="Index" />
 		</SafeAreaView>
 	);
 }
 
-const styles = StyleSheet.create({
-	button: {
-		backgroundColor: "pink",
-	},
-});
+const styles = StyleSheet.create({});
