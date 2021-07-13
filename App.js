@@ -85,6 +85,20 @@ export default function App() {
 		}
 	};
 
+	//destroy
+	const destroyCourt = async (id) => {
+		try {
+			await fetch(URL + `courts/${id}`, {
+				method: "delete",
+			});
+			alert("deleted");
+			//update courts
+			getCourts();
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	// useEffect to get permission/initial data
 	useEffect(() => {
 		getCourts();
@@ -96,7 +110,13 @@ export default function App() {
 			<Stack.Navigator>
 				<Stack.Screen name="Home" component={HomeScreen} />
 				<Stack.Screen name="Show">
-					{(props) => <ShowScreen {...props} courts={courts} />}
+					{(props) => (
+						<ShowScreen
+							{...props}
+							courts={courts}
+							destroyCourt={destroyCourt}
+						/>
+					)}
 				</Stack.Screen>
 				<Stack.Screen name="Index">
 					{(props) => (

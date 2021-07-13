@@ -1,5 +1,11 @@
 import React from "react";
-import { Text, SafeAreaView, View, StyleSheet } from "react-native";
+import {
+	Text,
+	SafeAreaView,
+	View,
+	StyleSheet,
+	TouchableOpacity,
+} from "react-native";
 import {
 	FontAwesome5,
 	FontAwesome,
@@ -12,11 +18,23 @@ import SwitchIcon from "../components/SwitchIcon";
 import NavBtn from "../components/NavBtn";
 import Map from "../components/Map";
 
-export default function ShowScreen({ navigation, route, courts }) {
+export default function ShowScreen({
+	navigation,
+	route,
+	courts,
+	destroyCourt,
+}) {
 	const id = route.params.id;
 	//courts
 	const court = courts.find((c) => c.id === id);
 	// console.log(court.title);
+
+	//destroy btn
+	const handleChange = () => {
+		destroyCourt(id);
+		//redirect to index
+		navigation.navigate("Index");
+	};
 
 	return (
 		<SafeAreaView style={styles.screenContainer}>
@@ -61,6 +79,9 @@ export default function ShowScreen({ navigation, route, courts }) {
 					icon2={<MaterialIcons name="vpn-key" size={24} color="black" />}
 				/>
 			</View>
+			<TouchableOpacity onPress={handleChange}>
+				<Text>Delete</Text>
+			</TouchableOpacity>
 			<NavBtn screen="Home" text="Home Page" />
 			<Text>Notes: {court.notes}</Text>
 		</SafeAreaView>
