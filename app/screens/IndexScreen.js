@@ -1,18 +1,24 @@
 import React from "react";
-import { View, Text, StyleSheet, SafeAreaView, Dimensions } from "react-native";
+import {
+	View,
+	Text,
+	StyleSheet,
+	SafeAreaView,
+	Dimensions,
+	TouchableOpacity,
+} from "react-native";
 import MapView, { Circle } from "react-native-maps";
 //components
 import PinPoint from "../components/PinPoint";
 
-export default function IndexScreen({ courts, location }) {
-	console.log("location index " + location.latitude, location.longitude);
+export default function IndexScreen({ location, courts, navigation }) {
+	// console.log(courts, location.latitude, location.longitude)
 
 	const loading = () => {
 		return <Text>Loading....</Text>;
 	};
 
 	const loaded = () => {
-		console.log("run loaded index");
 		return (
 			<MapView
 				style={styles.map}
@@ -52,6 +58,11 @@ export default function IndexScreen({ courts, location }) {
 			<View>
 				<Text>TITLE HERE</Text>
 			</View>
+			<TouchableOpacity
+				onPress={() => navigation.navigate("New")}
+			>
+				<Text>NEW BTN</Text>
+			</TouchableOpacity>
 		</SafeAreaView>
 	);
 }

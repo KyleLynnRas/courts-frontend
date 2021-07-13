@@ -7,11 +7,11 @@ import {
 	TextInput,
 	Switch,
 	TouchableOpacity,
-	ScrollView
+	ScrollView,
 } from "react-native";
 import FormPicker from "../components/FormPicker";
 
-export default function NewScreen({ createCourts }) {
+export default function NewScreen({ createCourts, navigation }) {
 	//state form data
 	const [formData, setFormData] = useState({
 		latitude: null,
@@ -28,8 +28,6 @@ export default function NewScreen({ createCourts }) {
 
 	//handlesubmit
 	const handleSubmit = () => {
-		console.log("ran");
-
 		//validation for required fields
 		if (!formData.title || !formData.stars || !formData.levelplay) {
 			alert("Please fill out all the fields. Notes are not required");

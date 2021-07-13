@@ -23,7 +23,6 @@ export default function App() {
 	//users location
 	const [location, setLocation] = useState({});
 
-	console.log(location);
 	//func to get permission
 	const permissionRequest = async () => {
 		try {
@@ -68,18 +67,6 @@ export default function App() {
 			latitude: location.latitude,
 			longitude: location.longitude,
 		};
-		console.log(
-			"new form" + formData.latitude,
-			formData.longitude,
-			formData.indoor,
-			formData.title,
-			formData.notes,
-			formData.fee,
-			formData.stars,
-			formData.public,
-			formData.bathrooms,
-			formData.levelplay
-		);
 
 		try {
 			await fetch(URL + "courts", {
@@ -98,19 +85,27 @@ export default function App() {
 		}
 	};
 
-	//useEffect to get permission/initial data
+	// useEffect to get permission/initial data
 	useEffect(() => {
 		getCourts();
 		permissionRequest();
 	}, []);
 
-	// return <NewScreen createCourts={createCourts} />;
-	// return <IndexScreen courts={courts} location={location} />;
 	return (
 		<NavigationContainer>
 			<Stack.Navigator>
 				<Stack.Screen name="Home" component={HomeScreen} />
-				<Stack.Screen name="Show" component={ShowScreen} />
+				<Stack.Screen name="Show">
+					{(props) => <ShowScreen {...props} courts={courts} />}
+				</Stack.Screen>
+				<Stack.Screen name="Index">
+					{(props) => (
+						<IndexScreen {...props} location={location} courts={courts} />
+					)}
+				</Stack.Screen>
+				<Stack.Screen name="New">
+					{(props) => <NewScreen {...props} createCourts={createCourts} />}
+				</Stack.Screen>
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

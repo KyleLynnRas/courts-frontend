@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
@@ -8,9 +8,9 @@ export default function HomeScreen({ navigation }) {
 			<Text>HOME SCREEN</Text>
 			<TouchableOpacity
 				style={styles.button}
-				onPress={() => navigation.navigate("Show")}
+				onPress={() => navigation.navigate("Index")}
 			>
-				<Text>Show</Text>
+				<Text>Index</Text>
 			</TouchableOpacity>
 		</SafeAreaView>
 	);
