@@ -19,7 +19,8 @@ export default function App() {
 	const [courts, setCourts] = useState([]);
 
 	//first api call to get initial data
-	const URL = "https://courts-app-api-kr.herokuapp.com/";
+	// const URL = "https://courts-app-api-kr.herokuapp.com/";
+	const URL = "http://localhost:3000/";
 
 	//users location
 	const [location, setLocation] = useState({});

@@ -25,6 +25,7 @@ export default function NewScreen({ createCourts, navigation }) {
 		bathrooms: false,
 		levelplay: false,
 		notes: "",
+		street: "",
 		title: "",
 	});
 
