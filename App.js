@@ -19,8 +19,8 @@ export default function App() {
 	const [courts, setCourts] = useState([]);
 
 	//first api call to get initial data
-	// const URL = "https://courts-app-api-kr.herokuapp.com/";
-	const URL = "http://localhost:3000/";
+	const URL = "https://courts-app-api-kr.herokuapp.com/";
+	// const URL = "http://localhost:3000/";
 
 	//users location
 	const [location, setLocation] = useState({});
@@ -127,8 +127,13 @@ export default function App() {
 
 	return (
 		<NavigationContainer>
-			<Stack.Navigator>
-				<Stack.Screen name="Home" component={HomeScreen} />
+			<Stack.Navigator initialRouteName="Index">
+				<Stack.Screen name="Index">
+					{(props) => (
+						<IndexScreen {...props} location={location} courts={courts} />
+					)}
+				</Stack.Screen>
+				{/* <Stack.Screen name="Home" component={HomeScreen} /> */}
 				<Stack.Screen name="Show">
 					{(props) => (
 						<ShowScreen
@@ -136,11 +141,6 @@ export default function App() {
 							courts={courts}
 							destroyCourt={destroyCourt}
 						/>
-					)}
-				</Stack.Screen>
-				<Stack.Screen name="Index">
-					{(props) => (
-						<IndexScreen {...props} location={location} courts={courts} />
 					)}
 				</Stack.Screen>
 				<Stack.Screen name="New">

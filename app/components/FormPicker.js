@@ -13,6 +13,7 @@ export default function FormPicker({
 	label4,
 	label5,
 	handleChange,
+	title,
 }) {
 	return (
 		<View style={style}>
@@ -20,16 +21,20 @@ export default function FormPicker({
 				selectedValue={selected}
 				mode="dropdown"
 				onValueChange={(value) => handleChange(value, name)}
-				itemStyle={{ fontSize: 12 }}
+				itemStyle={{
+					fontSize: 12,
+					backgroundColor: "rgba(255, 255, 255, 0.9)",
+					height: 90,
+					width: "90%",
+				}}
 			>
-				<Picker.Item label="" value="" />
 				<Picker.Item label={label1} value={label1} />
 				<Picker.Item label={label2} value={label2} />
 				<Picker.Item label={label3} value={label3} />
 				<Picker.Item label={label4} value={label4} />
 				<Picker.Item label={label5} value={label5} />
 			</Picker>
-			<Text>{label}</Text>
+			<Text style={title}>{label}</Text>
 		</View>
 	);
 }
