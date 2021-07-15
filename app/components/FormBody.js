@@ -83,8 +83,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		width: "100%",
 		alignItems: "center",
-		borderColor: "purple",
-		borderWidth: 2,
 		justifyContent: "space-around",
 		alignItems: "center",
 	},
