@@ -14,17 +14,17 @@ export default function LevelIcon({
 }) {
 	return (
 		<View>
-			{condition === "beginner" ? (
+			{condition === "Beginner" ? (
 				<View>
 					<Text>{text1}</Text>
 					{icon1}
 				</View>
-			) : condition === "medium" ? (
+			) : condition === "Medium" ? (
 				<View>
 					<Text>{text2}</Text>
 					{icon2}
 				</View>
-			) : condition === "advanced" ? (
+			) : condition === "Advanced" ? (
 				<View>
 					<Text>{text3}</Text>
 					{icon3}

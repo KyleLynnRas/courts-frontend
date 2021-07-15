@@ -118,7 +118,7 @@ export default function ShowScreen({
 			<TouchableOpacity onPress={handleChange}>
 				<Text>Delete</Text>
 			</TouchableOpacity>
-			<TouchableOpacity onPress={() => navigation.navigate("Edit", { id: id })}>
+			<TouchableOpacity style={{margin: 30}} onPress={() => navigation.navigate("Edit", { id: id })}>
 				<Text>Edit</Text>
 			</TouchableOpacity>
 			<NavBtn screen="Home" text="Home Page" />

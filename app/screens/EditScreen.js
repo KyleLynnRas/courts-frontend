@@ -1,16 +1,7 @@
 import React, { useState } from "react";
-import {
-	Text,
-	StyleSheet,
-	SafeAreaView,
-	TextInput,
-	Switch,
-	TouchableOpacity,
-	Keyboard,
-	TouchableWithoutFeedback,
-	View,
-} from "react-native";
-import FormPicker from "../components/FormPicker";
+import { StyleSheet, SafeAreaView } from "react-native";
+//components
+import FormBody from "../components/FormBody";
 
 export default function EditScreen({ navigation, courts, updateCourt, route }) {
 	//find court
@@ -36,7 +27,7 @@ export default function EditScreen({ navigation, courts, updateCourt, route }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		//validation for required fields
-		if (!formData.title || !formData.stars || !formData.levelplay) {
+		if (!formData.title) {
 			alert("Please fill out all the fields. Notes are not required");
 			return;
 		}
@@ -52,7 +43,13 @@ export default function EditScreen({ navigation, courts, updateCourt, route }) {
 
 	return (
 		<SafeAreaView style={styles.screenContainer}>
-			<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+			<FormBody
+				handleChange={handleChange}
+				handleSubmit={handleSubmit}
+				formData={formData}
+				setFormData={setFormData}
+			/>
+			{/* <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 				<View style={styles.formContainer}>
 					<TextInput
 						value={formData.title}
@@ -128,7 +125,7 @@ export default function EditScreen({ navigation, courts, updateCourt, route }) {
 						<Text>Submit!!</Text>
 					</TouchableOpacity>
 				</View>
-			</TouchableWithoutFeedback>
+			</TouchableWithoutFeedback> */}
 		</SafeAreaView>
 	);
 }
@@ -139,33 +136,5 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		alignItems: "center",
 		justifyContent: "center",
-	},
-	formContainer: {
-		width: "90%",
-		justifyContent: "center",
-		alignItems: "center",
-	},
-	input: {
-		width: 200,
-		padding: 10,
-		borderWidth: 2,
-		borderStyle: "solid",
-		borderColor: "gray",
-		borderRadius: 50,
-		overflow: "scroll",
-	},
-	pickerContainer: {
-		height: "auto",
-		width: 100,
-		overflow: "hidden",
-	},
-	submit: {
-		backgroundColor: "purple",
-		padding: 10,
-	},
-	pickerMain: {
-		justifyContent: "center",
-		alignItems: "center",
-		flexDirection: "row",
 	},
 });
