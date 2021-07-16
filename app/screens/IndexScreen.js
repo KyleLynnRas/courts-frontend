@@ -6,6 +6,7 @@ import {
 	SafeAreaView,
 	Dimensions,
 	ImageBackground,
+	ActivityIndicator,
 } from "react-native";
 import MapView, { Circle } from "react-native-maps";
 import { LinearGradient } from "expo-linear-gradient";
@@ -16,7 +17,9 @@ import Feature from "../components/index/Feature";
 
 export default function IndexScreen({ location, courts, navigation }) {
 	const loading = () => {
-		return <Text>Loading....</Text>;
+		return (
+			<ActivityIndicator size="large" color="#00ff00" style={styles.loading} />
+		);
 	};
 
 	const loaded = () => {
@@ -96,6 +99,10 @@ export default function IndexScreen({ location, courts, navigation }) {
 }
 
 const styles = StyleSheet.create({
+	loading: {
+		flex: 1,
+		width: "100%",
+	},
 	screenContainer: {
 		flex: 1,
 		backgroundColor: "#fff",
@@ -114,7 +121,7 @@ const styles = StyleSheet.create({
 	},
 	border: {
 		width: "100%",
-		height: 20,
+		height: 6,
 		backgroundColor: "#0E1E47",
 	},
 	imageBackground: {

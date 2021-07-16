@@ -3,12 +3,12 @@
     "name": "pickleball court finder",
     "slug": "pickleball-court-finder",
     "version": "1.0.0",
-    "orientation": "default",
-    "icon": "./assets/icon.png",
+    "orientation": "portrait",
+    "icon": "./assets/neon-logo.png",
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/neon-splash-icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#94D169"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
