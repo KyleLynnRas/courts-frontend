@@ -11,27 +11,29 @@ export default function LevelIcon({
 	icon2,
 	icon3,
 	icon4,
+	style, 
+	textStyle
 }) {
 	return (
-		<View>
+		<View style={style}>
 			{condition === "Beginner" ? (
 				<View>
-					<Text>{text1}</Text>
+					<Text style={textStyle}>{text1}</Text>
 					{icon1}
 				</View>
 			) : condition === "Medium" ? (
-				<View>
-					<Text>{text2}</Text>
+				<View >
+					<Text style={textStyle}>{text2}</Text>
 					{icon2}
 				</View>
 			) : condition === "Advanced" ? (
 				<View>
-					<Text>{text3}</Text>
+					<Text style={textStyle}>{text3}</Text>
 					{icon3}
 				</View>
 			) : (
 				<View>
-					<Text>{text4}</Text>
+					<Text style={textStyle}>{text4}</Text>
 					{icon4}
 				</View>
 			)}

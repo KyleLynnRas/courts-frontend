@@ -17,7 +17,7 @@ export default function Map({ court, id }) {
 			<Marker
 				id={id}
 				coordinate={{ latitude: court.latitude, longitude: court.longitude }}
-				pinColor="orange"
+				pinColor="#6B91FA"
 			></Marker>
 		</MapView>
 	);
@@ -26,6 +26,6 @@ export default function Map({ court, id }) {
 const styles = StyleSheet.create({
 	map: {
 		width: Dimensions.get("window").width,
-		flex: 0.6,
+		flex: 1,
 	},
 });

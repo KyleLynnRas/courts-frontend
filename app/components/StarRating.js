@@ -7,33 +7,108 @@ export default function StarRating({ stars }) {
 		<View style={styles.container}>
 			{stars === 1 ? (
 				<View style={styles.starContainer}>
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
 				</View>
 			) : stars === 2 ? (
 				<View style={styles.starContainer}>
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
 				</View>
 			) : stars === 3 ? (
 				<View style={styles.starContainer}>
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
 				</View>
 			) : stars === 4 ? (
 				<View style={styles.starContainer}>
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
 				</View>
 			) : (
 				<View style={styles.starContainer}>
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
-					<MaterialIcons name="stars" size={24} color="rgb(0,95,151)" />
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
+					<MaterialIcons
+						name="stars"
+						size={24}
+						color="#94D169"
+						style={styles.icon}
+					/>
 				</View>
 			)}
 		</View>
@@ -50,5 +125,11 @@ const styles = StyleSheet.create({
 	},
 	starContainer: {
 		flexDirection: "row",
+		justifyContent: "center",
+		width: "50%",
+	},
+	icon: {
+		marginLeft: 5,
+		marginRight: 5,
 	},
 });

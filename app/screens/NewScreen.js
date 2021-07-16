@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, SafeAreaView } from "react-native";
 //components
-import FormBody from "../components/FormBody";
+import FormBody from "../components/form/FormBody";
 
 export default function NewScreen({ createCourts, navigation }) {
 	//state form data
@@ -42,6 +42,7 @@ export default function NewScreen({ createCourts, navigation }) {
 	return (
 		<SafeAreaView style={styles.screenContainer}>
 			<FormBody
+				title="Add Court"
 				handleChange={handleChange}
 				handleSubmit={handleSubmit}
 				formData={formData}

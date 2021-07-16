@@ -9,9 +9,9 @@ import {
 	StyleSheet,
 } from "react-native";
 //components
-import FormPicker from "../components/FormPicker";
-import SwitchContainer from "../components/SwitchContainer";
-import FormText from "../components/FormText";
+import FormPicker from "./FormPicker";
+import SwitchContainer from "./SwitchContainer";
+import FormText from "./FormText";
 
 const image = { uri: "https://i.imgur.com/8I9D4EQ.jpg" };
 
@@ -20,6 +20,7 @@ export default function FormBody({
 	setFormData,
 	handleChange,
 	handleSubmit,
+	title
 }) {
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -29,7 +30,7 @@ export default function FormBody({
 				source={image}
 			>
 				<View style={styles.formContainer}>
-					<Text style={styles.heading}>Add Court</Text>
+					<Text style={styles.heading}>{title}</Text>
 					<FormText
 						formData={formData}
 						handleChange={handleChange}

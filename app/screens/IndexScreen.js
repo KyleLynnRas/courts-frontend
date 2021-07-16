@@ -31,7 +31,6 @@ export default function IndexScreen({ location, courts, navigation }) {
 				}}
 				provider="google"
 			>
-				{/* <Text style={styles.title}>App Title Here</Text> */}
 				{courts.map((c) => {
 					return (
 						<PinPoint

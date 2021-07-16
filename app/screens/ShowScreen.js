@@ -4,20 +4,16 @@ import {
 	SafeAreaView,
 	View,
 	StyleSheet,
-	TouchableOpacity,
+	ImageBackground,
 } from "react-native";
-import {
-	FontAwesome5,
-	FontAwesome,
-	MaterialIcons,
-	MaterialCommunityIcons,
-} from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 //components
 import StarRating from "../components/StarRating";
-import SwitchIcon from "../components/SwitchIcon";
-import NavBtn from "../components/NavBtn";
 import Map from "../components/Map";
-import LevelIcon from "../components/LevelIcon";
+import IconContainer from "../components/show/IconContainer";
+import ButtonContainer from "../components/show/ButtonContainer.js";
+
+const image = { uri: "https://i.imgur.com/957R9xH.jpg" };
 
 export default function ShowScreen({
 	navigation,
@@ -28,7 +24,6 @@ export default function ShowScreen({
 	const id = route.params.id;
 	//courts
 	const court = courts.find((c) => c.id === id);
-	// console.log(court.title);
 
 	//destroy btn
 	const handleChange = () => {
@@ -39,93 +34,33 @@ export default function ShowScreen({
 
 	return (
 		<SafeAreaView style={styles.screenContainer}>
-			<Map court={court} id={id} />
-			<Text>
-				{court.title} id: {id}
-			</Text>
-			<StarRating stars={court.stars} />
-			<View style={styles.iconContainer}>
-				<SwitchIcon
-					condition={court.indoor}
-					text1="Indoor"
-					text2="Outdoor"
-					icon1={<FontAwesome5 name="warehouse" size={24} color="black" />}
-					icon2={<FontAwesome name="tree" size={24} color="black" />}
-				/>
-				<SwitchIcon
-					condition={court.fee}
-					text1="Fee"
-					text2="No fee"
-					icon1={<MaterialIcons name="attach-money" size={24} color="black" />}
-					icon2={<MaterialIcons name="money-off" size={24} color="black" />}
-				/>
-				<SwitchIcon
-					condition={court.bathrooms}
-					text1="Bathrooms"
-					text2="No bathroom"
-					icon1={<FontAwesome5 name="toilet" size={24} color="black" />}
-					icon2={
-						<MaterialCommunityIcons
-							name="emoticon-cry-outline"
-							size={24}
-							color="black"
-						/>
-					}
-				/>
-				<SwitchIcon
-					condition={court.public}
-					text1="Public"
-					text2="Private"
-					icon1={<MaterialIcons name="public" size={24} color="black" />}
-					icon2={<MaterialIcons name="vpn-key" size={24} color="black" />}
-				/>
-				<LevelIcon
-					condition={court.levelplay}
-					text1="Beginner"
-					text2="Medium"
-					text3="Advanced"
-					text4="All"
-					icon1={
-						<MaterialCommunityIcons
-							name="speedometer-slow"
-							size={24}
-							color="black"
-						/>
-					}
-					icon2={
-						<MaterialCommunityIcons
-							name="speedometer-medium"
-							size={24}
-							color="black"
-						/>
-					}
-					icon3={
-						<MaterialCommunityIcons
-							name="speedometer"
-							size={24}
-							color="black"
-						/>
-					}
-					icon4={
-						<MaterialCommunityIcons
-							name="human-greeting"
-							size={24}
-							color="black"
-						/>
-					}
-				/>
+			<View style={styles.header}>
+				<Text style={styles.title}>{court.title}</Text>
+				<StarRating stars={court.stars} />
 			</View>
-			<TouchableOpacity onPress={handleChange}>
-				<Text>Delete</Text>
-			</TouchableOpacity>
-			<TouchableOpacity
-				style={{ margin: 30 }}
-				onPress={() => navigation.navigate("Edit", { id: id })}
-			>
-				<Text>Edit</Text>
-			</TouchableOpacity>
-			<NavBtn screen="Home" text="Home Page" />
-			<Text>Notes: {court.notes}</Text>
+			<View style={styles.mapContainer}>
+				<Map court={court} id={id} />
+			</View>
+			<View style={styles.border}></View>
+			<View style={styles.contentContainer}>
+				<ImageBackground
+					resizeMode="cover"
+					style={styles.imageBackground}
+					source={image}
+				>
+					<LinearGradient
+						style={styles.gradient}
+						colors={["rgba(255, 255, 255, 0.83)", "rgba(91, 165, 195, 0.41)"]}
+					>
+						<View style={styles.textContainer}>
+							<Text style={styles.address}>{court.street}</Text>
+							<IconContainer court={court} />
+							{/* <Text>Notes: {court.notes}</Text> */}
+							<ButtonContainer handleChange={handleChange} id={id} />
+						</View>
+					</LinearGradient>
+				</ImageBackground>
+			</View>
 		</SafeAreaView>
 	);
 }
@@ -137,12 +72,51 @@ const styles = StyleSheet.create({
 		alignItems: "flex-start",
 		justifyContent: "center",
 	},
-	iconContainer: {
-		flex: 0.4,
-		width: "100%",
-		flexDirection: "row",
-		justifyContent: "space-evenly",
+	header: {
+		backgroundColor: "#0E1E47",
+		justifyContent: "center",
 		alignItems: "center",
-		padding: 15,
+		padding: 5,
+	},
+	title: {
+		fontSize: 40,
+		fontFamily: "AvenirNext-Medium",
+		textAlign: "center",
+		backgroundColor: "#0E1E47",
+		width: "100%",
+		color: "#fff",
+		fontWeight: "bold",
+	},
+	mapContainer: {
+		flex: 0.4,
+	},
+	border: {
+		width: "100%",
+		height: 20,
+		backgroundColor: "#0E1E47",
+	},
+	contentContainer: {
+		width: "100%",
+		flex: 0.6,
+		justifyContent: "center",
+	},
+	imageBackground: {
+		height: "100%",
+		width: "100%",
+	},
+	gradient: {
+		height: "100%",
+		width: "100%",
+	},
+	textContainer: {
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	address: {
+		fontFamily: "Avenir Next",
+		fontSize: 19,
+		marginTop: 15,
+		marginBottom: 10,
+		fontWeight: "bold",
 	},
 });
