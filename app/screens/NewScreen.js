@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView, Alert } from "react-native";
 //components
 import FormBody from "../components/form/FormBody";
 
@@ -23,7 +23,7 @@ export default function NewScreen({ createCourts, navigation }) {
 		e.preventDefault();
 		//validation for required fields
 		if (!formData.title) {
-			alert("Please fill out all the fields.");
+			Alert.alert("Error", "Please fill out all the fields.");
 			return;
 		}
 		//send form data in post request

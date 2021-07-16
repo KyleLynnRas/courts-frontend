@@ -1,6 +1,5 @@
-import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Alert } from "react-native";
 import * as Location from "expo-location";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -30,7 +29,7 @@ export default function App() {
 			const { status } = await Location.requestForegroundPermissionsAsync();
 			//if permission denied, send error
 			if (status !== "granted") {
-				alert("This app needs location data to run properly");
+				Alert.alert("Error", "This app needs location data to run properly");
 				return;
 			}
 			//get lat/long
@@ -76,11 +75,11 @@ export default function App() {
 				body: JSON.stringify(formData),
 			});
 			//test
-			alert("sent");
+			// alert("sent");
 			//update courts
 			getCourts();
 		} catch (error) {
-			console.log(error);
+			alert(error);
 		}
 	};
 
@@ -90,11 +89,11 @@ export default function App() {
 			await fetch(URL + `courts/${id}`, {
 				method: "delete",
 			});
-			alert("deleted");
+			// alert("deleted");
 			//update courts
 			getCourts();
 		} catch (error) {
-			console.log(error);
+			alert(error);
 		}
 	};
 
@@ -108,11 +107,11 @@ export default function App() {
 				},
 				body: JSON.stringify(formData),
 			});
-			alert("updated");
+			// alert("updated");
 			//update courts
 			getCourts();
 		} catch (error) {
-			console.log(error);
+			alert(error);
 		}
 	};
 
