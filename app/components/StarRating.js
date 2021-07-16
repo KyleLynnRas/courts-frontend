@@ -121,12 +121,12 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-evenly",
 		alignItems: "center",
-		padding: 5,
+		padding: 7,
 	},
 	starContainer: {
 		flexDirection: "row",
 		justifyContent: "center",
-		width: "50%",
+		width: "100%",
 	},
 	icon: {
 		marginLeft: 5,

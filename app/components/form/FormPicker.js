@@ -28,6 +28,7 @@ export default function FormPicker({
 					width: "95%",
 				}}
 			>
+				<Picker.Item label="" value="" />
 				<Picker.Item label={label1} value={label1} />
 				<Picker.Item label={label2} value={label2} />
 				<Picker.Item label={label3} value={label3} />

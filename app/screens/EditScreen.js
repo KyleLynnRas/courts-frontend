@@ -26,7 +26,7 @@ export default function EditScreen({ navigation, courts, updateCourt, route }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		//validation for required fields
-		if (!formData.title) {
+		if (!formData.title || !formData.stars || !formData.levelplay) {
 			Alert.alert("Error", "Please fill out all the fields.");
 			return;
 		}

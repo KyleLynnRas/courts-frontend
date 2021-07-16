@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "pickleball court finder",
-    "slug": "pickleball-court-finder",
+    "name": "Courterly Report",
+    "slug": "courterly-report",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/neon-logo.png",
@@ -28,6 +28,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "This app will find your current location and display pickleball courts in your area. Don't see your court? Fill out our \"add court\" form to add a new court to the database along with your review! "
   }
 }

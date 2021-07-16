@@ -122,7 +122,7 @@ export default function App() {
 	}, []);
 
 	const screenOptions = {
-		title: "Court Finder",
+		title: "Courterly Report",
 		headerStyle: { backgroundColor: "#0E1E47" },
 		headerTintColor: "#fff",
 		headerTitleStyle: {
