@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
 		flexDirection: "row",
 		justifyContent: "space-evenly",
 		alignItems: "center",
-		padding: 10,
+		padding: 5,
 	},
 	starContainer: {
 		flexDirection: "row",

@@ -17,7 +17,7 @@ export default function PinPoint({ id, latitude, longitude, stars, title }) {
 			{/*link to show and pass id in params  */}
 			<Callout
 				style={styles.callout}
-				onPress={() => navigation.navigate("Show", { id: id })}
+				onPress={() => navigation.navigate("Show", { id: id, title: title })}
 			>
 				<Text style={styles.text}>{title}</Text>
 				<StarRating stars={stars} />

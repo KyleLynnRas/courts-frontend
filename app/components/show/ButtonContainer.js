@@ -23,7 +23,8 @@ export default function ButtonContainer({ handleChange, id }) {
 
 const styles = StyleSheet.create({
 	btnContainer: {
-		marginTop: 30,
+		marginTop: 10,
+		marginBottom: 30,
 		flexDirection: "row",
 		width: "60%",
 		justifyContent: "space-around",

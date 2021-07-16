@@ -5,7 +5,6 @@ import * as Location from "expo-location";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 //screens
-import HomeScreen from "./app/screens/HomeScreen";
 import ShowScreen from "./app/screens/ShowScreen";
 import IndexScreen from "./app/screens/IndexScreen";
 import NewScreen from "./app/screens/NewScreen";
@@ -20,7 +19,6 @@ export default function App() {
 
 	//first api call to get initial data
 	const URL = "https://courts-app-api-kr.herokuapp.com/";
-	// const URL = "http://localhost:3000/";
 
 	//users location
 	const [location, setLocation] = useState({});
@@ -54,7 +52,6 @@ export default function App() {
 		try {
 			const response = await fetch(URL + "courts");
 			const data = await response.json();
-			// console.log(data);
 			//set state with api data
 			setCourts(data);
 		} catch (error) {
@@ -125,16 +122,31 @@ export default function App() {
 		permissionRequest();
 	}, []);
 
+	const screenOptions = {
+		title: "Court Finder",
+		headerStyle: { backgroundColor: "#0E1E47" },
+		headerTintColor: "#fff",
+		headerTitleStyle: {
+			fontFamily: "AvenirNext-Medium",
+			fontSize: 20,
+		},
+	};
+
 	return (
 		<NavigationContainer>
 			<Stack.Navigator initialRouteName="Index">
-				<Stack.Screen name="Index">
+				<Stack.Screen name="Index" options={screenOptions}>
 					{(props) => (
 						<IndexScreen {...props} location={location} courts={courts} />
 					)}
 				</Stack.Screen>
-				{/* <Stack.Screen name="Home" component={HomeScreen} /> */}
-				<Stack.Screen name="Show">
+				<Stack.Screen
+					name="Show"
+					options={({ route }) => ({
+						...screenOptions,
+						title: route.params.title,
+					})}
+				>
 					{(props) => (
 						<ShowScreen
 							{...props}
@@ -143,10 +155,10 @@ export default function App() {
 						/>
 					)}
 				</Stack.Screen>
-				<Stack.Screen name="New">
+				<Stack.Screen name="New" options={{ ...screenOptions, title: "" }}>
 					{(props) => <NewScreen {...props} createCourts={createCourts} />}
 				</Stack.Screen>
-				<Stack.Screen name="Edit">
+				<Stack.Screen name="Edit" options={{ ...screenOptions, title: "" }}>
 					{(props) => (
 						<EditScreen {...props} updateCourt={updateCourt} courts={courts} />
 					)}

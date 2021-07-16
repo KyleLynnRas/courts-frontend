@@ -60,7 +60,6 @@ export default function IndexScreen({ location, courts, navigation }) {
 
 	return (
 		<SafeAreaView style={styles.screenContainer}>
-			<Text style={styles.title}>App Title Here</Text>
 			<View style={styles.mapContainer}>
 				{location.latitude ? loaded() : loading()}
 			</View>
@@ -147,18 +146,6 @@ const styles = StyleSheet.create({
 		height: "30%",
 		alignItems: "center",
 		justifyContent: "center",
-	},
-	title: {
-		backgroundColor: "#0E1E47",
-		justifyContent: "center",
-		alignItems: "center",
-		padding: 8,
-		fontSize: 40,
-		fontFamily: "AvenirNext-Medium",
-		fontWeight: "bold",
-		textAlign: "center",
-		width: "100%",
-		color: "#fff",
 	},
 	tagline: {
 		textAlign: "center",

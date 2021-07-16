@@ -34,10 +34,6 @@ export default function ShowScreen({
 
 	return (
 		<SafeAreaView style={styles.screenContainer}>
-			<View style={styles.header}>
-				<Text style={styles.title}>{court.title}</Text>
-				<StarRating stars={court.stars} />
-			</View>
 			<View style={styles.mapContainer}>
 				<Map court={court} id={id} />
 			</View>
@@ -53,10 +49,11 @@ export default function ShowScreen({
 						colors={["rgba(255, 255, 255, 0.83)", "rgba(91, 165, 195, 0.41)"]}
 					>
 						<View style={styles.textContainer}>
+							<StarRating stars={court.stars} />
 							<Text style={styles.address}>{court.street}</Text>
 							<IconContainer court={court} />
-							<ButtonContainer handleChange={handleChange} id={id} />
 						</View>
+						<ButtonContainer handleChange={handleChange} id={id} />
 					</LinearGradient>
 				</ImageBackground>
 			</View>
@@ -70,21 +67,6 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		alignItems: "flex-start",
 		justifyContent: "center",
-	},
-	header: {
-		backgroundColor: "#0E1E47",
-		justifyContent: "center",
-		alignItems: "center",
-		padding: 5,
-	},
-	title: {
-		fontSize: 40,
-		fontFamily: "AvenirNext-Medium",
-		textAlign: "center",
-		backgroundColor: "#0E1E47",
-		width: "100%",
-		color: "#fff",
-		fontWeight: "bold",
 	},
 	mapContainer: {
 		flex: 0.4,
@@ -104,18 +86,27 @@ const styles = StyleSheet.create({
 		width: "100%",
 	},
 	gradient: {
+		justifyContent: "flex-start",
+		alignItems: "center",
 		height: "100%",
 		width: "100%",
 	},
 	textContainer: {
-		justifyContent: "center",
+		marginTop: 15,
+		padding: 3,
+		width: "85%",
+		height: "80%",
+		justifyContent: "flex-start",
 		alignItems: "center",
+		backgroundColor: "rgba(255, 255, 255, 0.57)",
 	},
 	address: {
 		fontFamily: "Avenir Next",
-		fontSize: 19,
-		marginTop: 15,
-		marginBottom: 10,
-		fontWeight: "bold",
+		fontSize: 18,
+		marginTop: 5,
+		marginBottom: 8,
+		fontWeight: "600",
+		width: "100%",
+		textAlign: "center",
 	},
 });
