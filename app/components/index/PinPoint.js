@@ -12,7 +12,7 @@ export default function PinPoint({ id, latitude, longitude, stars, title }) {
 		<Marker
 			id={id}
 			coordinate={{ latitude: latitude, longitude: longitude }}
-			pinColor="#6B91FA"
+			pinColor="limegreen"
 		>
 			{/*link to show and pass id in params  */}
 			<Callout

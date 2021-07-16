@@ -24,12 +24,12 @@ export default function FormBody({
 	title,
 }) {
 	return (
-		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-			<ImageBackground
-				resizeMode="cover"
-				style={styles.background}
-				source={image}
-			>
+		<ImageBackground
+			resizeMode="cover"
+			style={styles.background}
+			source={image}
+		>
+			<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
 				<LinearGradient
 					style={styles.gradient}
 					colors={["rgba(156, 219, 111, 0.6)", "rrgba(86, 158, 186, 0.6)"]}
@@ -74,8 +74,8 @@ export default function FormBody({
 						</TouchableOpacity>
 					</View>
 				</LinearGradient>
-			</ImageBackground>
-		</TouchableWithoutFeedback>
+			</TouchableWithoutFeedback>
+		</ImageBackground>
 	);
 }
 

@@ -17,7 +17,7 @@ export default function Map({ court, id }) {
 			<Marker
 				id={id}
 				coordinate={{ latitude: court.latitude, longitude: court.longitude }}
-				pinColor="#6B91FA"
+				pinColor="limegreen"
 			></Marker>
 		</MapView>
 	);

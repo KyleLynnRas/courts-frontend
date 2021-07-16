@@ -18,7 +18,7 @@ import Feature from "../components/index/Feature";
 export default function IndexScreen({ location, courts, navigation }) {
 	const loading = () => {
 		return (
-			<ActivityIndicator size="large" color="#00ff00" style={styles.loading} />
+			<ActivityIndicator size="large" color="#0E1E47" style={styles.loading} />
 		);
 	};
 
