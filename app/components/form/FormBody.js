@@ -8,19 +8,20 @@ import {
 	ImageBackground,
 	StyleSheet,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 //components
 import FormPicker from "./FormPicker";
 import SwitchContainer from "./SwitchContainer";
 import FormText from "./FormText";
 
-const image = { uri: "https://i.imgur.com/8I9D4EQ.jpg" };
+const image = { uri: "https://i.imgur.com/P8XiNr9.jpg" };
 
 export default function FormBody({
 	formData,
 	setFormData,
 	handleChange,
 	handleSubmit,
-	title
+	title,
 }) {
 	return (
 		<TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -29,45 +30,50 @@ export default function FormBody({
 				style={styles.background}
 				source={image}
 			>
-				<View style={styles.formContainer}>
-					<Text style={styles.heading}>{title}</Text>
-					<FormText
-						formData={formData}
-						handleChange={handleChange}
-						style={styles.input}
-					/>
-					<SwitchContainer formData={formData} setFormData={setFormData} />
-					<View style={styles.pickerMain}>
-						<FormPicker
-							title={styles.pickerTitle}
-							style={styles.pickerContainer}
-							label="Star Rating"
-							name="stars"
-							selected={formData.stars}
-							label1="1"
-							label2="2"
-							label3="3"
-							label4="4"
-							label5="5"
+				<LinearGradient
+					style={styles.gradient}
+					colors={["rgba(156, 219, 111, 0.6)", "rrgba(86, 158, 186, 0.6)"]}
+				>
+					<View style={styles.formContainer}>
+						<Text style={styles.heading}>{title}</Text>
+						<FormText
+							formData={formData}
 							handleChange={handleChange}
+							style={styles.input}
 						/>
-						<FormPicker
-							title={styles.pickerTitle}
-							style={styles.pickerContainer}
-							label="Level of play"
-							name="levelplay"
-							selected={formData.levelplay}
-							label1="Beginner"
-							label2="Medium"
-							label3="Advanced"
-							label4="All"
-							handleChange={handleChange}
-						/>
+						<SwitchContainer formData={formData} setFormData={setFormData} />
+						<View style={styles.pickerMain}>
+							<FormPicker
+								title={styles.pickerTitle}
+								style={styles.pickerContainer}
+								label="Star Rating"
+								name="stars"
+								selected={formData.stars}
+								label1="1"
+								label2="2"
+								label3="3"
+								label4="4"
+								label5="5"
+								handleChange={handleChange}
+							/>
+							<FormPicker
+								title={styles.pickerTitle}
+								style={styles.pickerContainer}
+								label="Level of play"
+								name="levelplay"
+								selected={formData.levelplay}
+								label1="Beginner"
+								label2="Medium"
+								label3="Advanced"
+								label4="All"
+								handleChange={handleChange}
+							/>
+						</View>
+						<TouchableOpacity onPress={handleSubmit} style={styles.submit}>
+							<Text style={styles.submitText}>Submit</Text>
+						</TouchableOpacity>
 					</View>
-					<TouchableOpacity onPress={handleSubmit} style={styles.submit}>
-						<Text style={styles.submitText}>Submit</Text>
-					</TouchableOpacity>
-				</View>
+				</LinearGradient>
 			</ImageBackground>
 		</TouchableWithoutFeedback>
 	);
@@ -87,10 +93,17 @@ const styles = StyleSheet.create({
 		justifyContent: "space-around",
 		alignItems: "center",
 	},
+	gradient: {
+		width: "100%",
+		height: "100%",
+		justifyContent: "center",
+		alignItems: "center",
+	},
 	heading: {
 		fontSize: 30,
 		marginTop: 15,
 		fontFamily: "Avenir Next",
+		fontWeight: "600",
 	},
 	formContainer: {
 		height: "85%",
@@ -102,15 +115,18 @@ const styles = StyleSheet.create({
 		borderRadius: 40,
 	},
 	submit: {
-		backgroundColor: "rgb(204, 148, 222)",
+		backgroundColor: "#5BA5C3",
 		padding: 15,
-		borderRadius: 25,
+		borderRadius: 27,
 		marginTop: 15,
 		fontFamily: "Avenir Next",
 		color: "#fff",
+		width: "40%",
+		alignItems: "center",
 	},
 	submitText: {
 		fontFamily: "Avenir Next",
+		fontWeight: "600",
 	},
 	input: {
 		width: 200,
@@ -133,7 +149,7 @@ const styles = StyleSheet.create({
 	},
 	pickerTitle: {
 		marginTop: 10,
-		fontSize: 15,
+		fontSize: 16,
 		fontFamily: "Avenir Next",
 	},
 	pickerContainer: {

@@ -19,7 +19,6 @@ export default function EditScreen({ navigation, courts, updateCourt, route }) {
 		public: court.public,
 		bathrooms: court.bathrooms,
 		levelplay: court.levelplay,
-		notes: court.notes,
 		title: court.title,
 	});
 
@@ -28,7 +27,7 @@ export default function EditScreen({ navigation, courts, updateCourt, route }) {
 		e.preventDefault();
 		//validation for required fields
 		if (!formData.title) {
-			alert("Please fill out all the fields. Notes are not required");
+			alert("Please fill out all the fields.");
 			return;
 		}
 		//send form data in put request

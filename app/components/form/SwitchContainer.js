@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
 	},
 	label: {
 		margin: 6,
-		fontSize: 15,
+		fontSize: 16,
 		fontFamily: "Avenir Next",
 	},
 });

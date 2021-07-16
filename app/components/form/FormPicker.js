@@ -25,7 +25,7 @@ export default function FormPicker({
 					fontSize: 12,
 					backgroundColor: "rgba(255, 255, 255, 0.9)",
 					height: 90,
-					width: "90%",
+					width: "95%",
 				}}
 			>
 				<Picker.Item label={label1} value={label1} />

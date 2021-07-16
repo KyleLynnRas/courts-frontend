@@ -9,13 +9,13 @@ export default function ButtonContainer({ handleChange, id }) {
 	return (
 		<View style={styles.btnContainer}>
 			<TouchableOpacity onPress={handleChange} style={styles.button}>
-				<Text>Delete</Text>
+				<Text style={styles.text}>Delete</Text>
 			</TouchableOpacity>
 			<TouchableOpacity
 				onPress={() => navigation.navigate("Edit", { id: id })}
 				style={styles.button}
 			>
-				<Text>Edit</Text>
+				<Text style={styles.text}>Edit</Text>
 			</TouchableOpacity>
 		</View>
 	);
@@ -34,7 +34,10 @@ const styles = StyleSheet.create({
 		width: "40%",
 		borderRadius: 21,
 		justifyContent: "center",
-		fontFamily: "Avenir Next",
 		alignItems: "center",
+	},
+	text: {
+		fontFamily: "Avenir Next",
+		fontWeight: "600",
 	},
 });

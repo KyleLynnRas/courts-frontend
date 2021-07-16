@@ -11,15 +11,6 @@ export default function FormText({ formData, style, handleChange }) {
 				placeholderTextColor="rgba(149, 149, 149, 1)"
 				onChangeText={(value) => handleChange(value, "title")}
 			/>
-			<TextInput
-				style={style}
-				maxLength={50}
-				multiline
-				value={formData.notes}
-				placeholder="Notes"
-				placeholderTextColor="rgba(149, 149, 149, 1)"
-				onChangeText={(value) => handleChange(value, "notes")}
-			/>
 		</View>
 	);
 }
