@@ -28,6 +28,6 @@ const styles = StyleSheet.create({
 	},
 	text: {
 		fontFamily: "Avenir Next",
-		fontSize: 16,
+		fontSize: 17,
 	},
 });

@@ -2,7 +2,7 @@ import React from "react";
 import { Text, StyleSheet } from "react-native";
 import { Marker, Callout } from "react-native-maps";
 import { useNavigation } from "@react-navigation/native";
-import StarRating from "./StarRating";
+import StarRating from "../StarRating";
 
 export default function PinPoint({ id, latitude, longitude, stars, title }) {
 	//nav prop
@@ -12,7 +12,7 @@ export default function PinPoint({ id, latitude, longitude, stars, title }) {
 		<Marker
 			id={id}
 			coordinate={{ latitude: latitude, longitude: longitude }}
-			pinColor="rgb(204, 148, 222)"
+			pinColor="#6B91FA"
 		>
 			{/*link to show and pass id in params  */}
 			<Callout

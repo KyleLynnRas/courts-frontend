@@ -10,9 +10,9 @@ import {
 import MapView, { Circle } from "react-native-maps";
 import { LinearGradient } from "expo-linear-gradient";
 //components
-import PinPoint from "../components/PinPoint";
+import PinPoint from "../components/index/PinPoint";
 import NavBtn from "../components/NavBtn";
-import Feature from "../components/Feature";
+import Feature from "../components/index/Feature";
 
 export default function IndexScreen({ location, courts, navigation }) {
 	const loading = () => {
@@ -46,8 +46,8 @@ export default function IndexScreen({ location, courts, navigation }) {
 				<Circle
 					center={location}
 					radius={1000}
-					strokeColor={"rgba(203, 149, 220, 0.28)"}
-					fillColor={"rgba(203, 149, 220, 0.28)"}
+					strokeColor={"rgba(107, 145, 250, 0.3)"}
+					fillColor={"rgba(107, 145, 250, 0.3)"}
 				/>
 			</MapView>
 		);
@@ -70,7 +70,7 @@ export default function IndexScreen({ location, courts, navigation }) {
 				>
 					<LinearGradient
 						style={styles.gradient}
-						colors={["rgba(255, 255, 255, 0.86)", "rgba(255, 255, 255, 0.86)"]}
+						colors={["rgba(255, 255, 255, 0.83)", "rgba(91, 165, 195, 0.41)"]}
 					>
 						<View style={styles.textContainer}>
 							<Text style={styles.tagline}>
@@ -78,16 +78,16 @@ export default function IndexScreen({ location, courts, navigation }) {
 								are saying.
 							</Text>
 							<View style={styles.featureContainer}>
-								<Feature text="Find courts nearby" />
-								<Feature text="Add a review" />
+								<Feature text="Find nearby courts" />
+								<Feature text="Add your own review" />
 							</View>
-							<NavBtn
-								text="Add a court"
-								screen="New"
-								style={styles.newBtn}
-								textStyle={styles.btnText}
-							/>
 						</View>
+						<NavBtn
+							text="Add a court"
+							screen="New"
+							style={styles.newBtn}
+							textStyle={styles.btnText}
+						/>
 					</LinearGradient>
 				</ImageBackground>
 			</View>
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
 		justifyContent: "flex-start",
 	},
 	mapContainer: {
-		flex: 0.55,
+		flex: 0.45,
 	},
 	map: {
 		width: Dimensions.get("window").width,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
 	border: {
 		width: "100%",
 		height: 20,
-		backgroundColor: "rgba(172, 172, 172, 0.61)",
+		backgroundColor: "#0E1E47",
 	},
 	imageBackground: {
 		width: "100%",
@@ -129,41 +129,54 @@ const styles = StyleSheet.create({
 	contentContainer: {
 		width: "100%",
 		height: "100%",
-		flex: 0.45,
+		flex: 0.55,
 	},
 	textContainer: {
-		flex: 0.95,
+		marginTop: 10,
+		backgroundColor: "rgba(255, 255, 255, 0.57)",
+		flex: 0.85,
 		padding: 10,
+		width: "85%",
+		height: "30%",
 		alignItems: "center",
-		justifyContent: "space-around",
+		justifyContent: "center",
 	},
 	title: {
+		backgroundColor: "#0E1E47",
+		justifyContent: "center",
+		alignItems: "center",
+		padding: 8,
 		fontSize: 40,
 		fontFamily: "AvenirNext-Medium",
+		fontWeight: "bold",
 		textAlign: "center",
-		backgroundColor: "rgba(0, 95, 151, 0.3)",
-		padding: 6,
 		width: "100%",
+		color: "#fff",
 	},
 	tagline: {
 		textAlign: "center",
 		fontFamily: "Avenir Next",
-		fontSize: 18,
+		fontSize: 19,
 		marginTop: -10,
+		marginBottom: 10,
+		fontWeight: "500",
 	},
 	featureContainer: {
 		justifyContent: "center",
 		alignItems: "flex-start",
 	},
 	newBtn: {
-		backgroundColor: "rgb( 204, 148, 222)",
+		backgroundColor: "rgba(148, 209, 105, 0.84)",
 		padding: 11,
-		width: "40%",
+		width: "30%",
 		borderRadius: 21,
 		justifyContent: "center",
-		fontFamily: "Avenir Next",
+		alignItems: "center",
+		marginBottom: 10,
 	},
 	btnText: {
-		fontFamily: "Avenir Next",
+		fontFamily: "AvenirNext-Medium",
+		fontWeight: "600",
+		fontSize: 15,
 	},
 });

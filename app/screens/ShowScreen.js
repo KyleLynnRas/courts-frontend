@@ -9,7 +9,7 @@ import {
 import { LinearGradient } from "expo-linear-gradient";
 //components
 import StarRating from "../components/StarRating";
-import Map from "../components/Map";
+import Map from "../components/show/Map";
 import IconContainer from "../components/show/IconContainer";
 import ButtonContainer from "../components/show/ButtonContainer.js";
 
@@ -55,7 +55,6 @@ export default function ShowScreen({
 						<View style={styles.textContainer}>
 							<Text style={styles.address}>{court.street}</Text>
 							<IconContainer court={court} />
-							{/* <Text>Notes: {court.notes}</Text> */}
 							<ButtonContainer handleChange={handleChange} id={id} />
 						</View>
 					</LinearGradient>
