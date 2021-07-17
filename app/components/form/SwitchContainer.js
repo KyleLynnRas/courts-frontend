@@ -8,7 +8,6 @@ export default function SwitchContainer({ formData, setFormData }) {
 				<Text style={styles.label}>Indoor</Text>
 				<Switch
 					ios_backgroundColor="rgba(164, 163, 163, 0.49)"
-					keyboard="none"
 					value={formData.indoor}
 					onValueChange={() =>
 						setFormData({ ...formData, indoor: !formData.indoor })
